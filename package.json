@@ -1,0 +1,23 @@
+{
+    "name": "app-launcher",
+    "version": "1.0.0",
+    "description": "A minimal app launcher made with electron application",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "repository": "https://github.com/electron/electron-quick-start",
+    "keywords": [
+        "Electron"
+    ],
+    "author": "GitHub",
+    "license": "CC0-1.0",
+    "devDependencies": {
+        "@electron/packager": "^18.3.5",
+        "electron": "^32.0.1"
+    },
+    "dependencies": {
+        "bootstrap": "^5.3.3",
+        "bootstrap-icons": "^1.11.3"
+    }
+}
