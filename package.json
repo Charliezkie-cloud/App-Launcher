@@ -4,7 +4,8 @@
     "description": "A minimal app launcher made with electron application",
     "main": "main.js",
     "scripts": {
-        "start": "electron ."
+        "start": "electron .",
+        "build": "npx @electron/packager ."
     },
     "repository": "https://github.com/electron/electron-quick-start",
     "keywords": [
