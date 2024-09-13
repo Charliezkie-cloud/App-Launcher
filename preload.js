@@ -12,9 +12,6 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 contextBridge.exposeInMainWorld('electronAPI', {
-    callInitialize: (value) => ipcRenderer.send('call-initialize', value),
-    receiveInitialize: (callback) => ipcRenderer.on('receive-initialize', (_event, value) => callback(value)),
-    
     loadSettings: (callback) => ipcRenderer.on('load-settings', (_event, value) => callback(value)),
 
     openApp: (value) => ipcRenderer.send('open-app', value),
