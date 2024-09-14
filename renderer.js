@@ -1,7 +1,14 @@
+window.electronAPI.callInitialize(1);
+
 window.electronAPI.loadSettings((res) => {
     const theme = res.theme;
+    const icons = res.icons;
 
     document.documentElement.setAttribute("data-bs-theme", theme);
+
+    Array.from(document.getElementsByClassName("item")).forEach((item) => {
+        item.classList.replace("small", icons);
+    });
 });
 
 const items = document.getElementsByClassName("item");

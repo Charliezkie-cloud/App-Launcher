@@ -1,5 +1,5 @@
-$primary: rgb(253, 167, 29);
-$secondary: rgb(81, 21, 19);
+$primary: rgba(52, 4, 83);
+$secondary: rgb(52, 4, 83);
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
@@ -68,7 +68,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../img/background.webp');
+    background-image: url('../img/background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -83,10 +83,10 @@ body::before {
     overflow-x: hidden;
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: start;
     flex-wrap: wrap;
-    gap: 1.2rem;
+    gap: 1rem;
 
     $light: rgba(73, 80, 87, 0.3);
     $dark: rgba(52, 58, 64, 0.3);

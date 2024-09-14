@@ -14,6 +14,13 @@ function createWindow() {
         }
     });
 
+    ipcMain.on("call-initialize", async (event, value) => {
+        const json = await fs.readFile(path.join(__dirname, "app-settings.json"), "utf-8").catch((err) => console.error(err));;
+        const jsonData = JSON.parse(json);
+
+        mainWindow.webContents.send("load-settings", jsonData);
+    });
+
     ipcMain.on("open-app", (event, value) => {
         const lnkPath = path.join(__dirname, "apps", "shortcuts", value);
 
@@ -40,17 +47,12 @@ function createWindow() {
     });
 
     ipcMain.on("icons", async (event, value) => {
-        try {
-            const json = await fs.readFile(path.join(__dirname, "app-settings.json"), "utf-8").catch((err) => console.error(err));;
-            const jsonData = JSON.parse(json);
-    
-            jsonData.icons = value;
+        const json = await fs.readFile(path.join(__dirname, "app-settings.json"), "utf-8").catch((err) => console.error(err));;
+        const jsonData = JSON.parse(json);
 
-            fs.writeFile(path.join(__dirname, "app-settings.json"), JSON.stringify(jsonData), "utf-8").catch((err) => console.error(err));
-        } catch (err) {
-            console.error(err);
-            throw err;
-        }
+        jsonData.icons = value;
+
+        fs.writeFile(path.join(__dirname, "app-settings.json"), JSON.stringify(jsonData), "utf-8").catch((err) => console.error(err));
     });
 
     mainWindow.loadFile('index.html');
